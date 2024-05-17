@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    gap: 10px;
+
+    div{
+        padding: 15px;
+        background-color: gray;
+        border-radius: 5px;
+        box-shadow: inset 5px 5px 20px rgba(0, 0, 0, 0.842);
+        font-size: 30px; 
+    }
+    p{
+        font-weight: bolder;
+        font-size: 20px;
+    }
+}

@@ -9,19 +9,19 @@ export default function Relogio({ tempo }: Props){
     return (
         <span className={style.container}>
             <div>
-                {tempo.hora}
+                { tempo.hora }
             </div>
             <p>
                 :
             </p>
             <div>
-                {tempo.minuto}
+                { tempo.minuto } 
             </div>
             <p>
                 :
             </p>
             <div>
-                {tempo.segundo}
+                { tempo.segundo }
             </div>
         </span>
     )

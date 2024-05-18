@@ -26,9 +26,43 @@ const Cronometro = ({ selecionada }: Props) => {
         }
     }, [selecionada]);
 
+    function iniciaCronometro(tempo: Tempo): void{
+        let hora = Number(tempo.hora);
+        let minuto = Number(tempo.minuto);
+        let segundo = Number(tempo.segundo);
+
+        setTimeout(() => {
+            if (segundo > 0){
+                segundo -= 1;
+            }
+            else if (minuto > 0){
+                segundo = 59;
+                minuto -= 1;
+            } else if (hora > 0){
+                minuto = 59;
+                hora -= 1;
+            }
+
+            const hms = {
+                hora: String(hora).padStart(2, '0'),
+                minuto: String(minuto).padStart(2, '0'),
+                segundo: String(segundo).padStart(2, '0')
+            }
+
+            setTempo(hms);
+
+            if (hora != 0 || minuto != 0 || segundo != 0){
+                return iniciaCronometro(hms);
+            }
+        }, 1000)
+    }
+
     return (
         <section className={style.alarmClock}>
-            <form>
+            <form onSubmit={(evento) => {
+                evento.preventDefault();
+                iniciaCronometro(tempo);
+            }}>
                 <Relogio tempo={tempo}/>
                 <Button type='submit'>
                     Começar

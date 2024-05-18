@@ -34,7 +34,7 @@ export default function CrudBar({ setTarefas }: { setTarefas: React.Dispatch<Rea
                     name="timeInput"
                     id="timeInput"
                     step="1"
-                    min="00:01:00"
+                    min="00:00:01"
                     max="24:00:00"
                     value={state.tempo}
                     onChange={evento => {
